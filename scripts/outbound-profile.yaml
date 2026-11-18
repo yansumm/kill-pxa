@@ -1,0 +1,45 @@
+# 本地 profile：只有一个出口，指向本机 SSH 隧道；分流全部交给出口主机。
+# 只需要把这个文件里的 port 改成与 LocalForward 的本地端口一致。
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+
+proxies:
+  - name: tunnel
+    type: http
+    server: 127.0.0.1
+    port: 17890
+
+proxy-groups:
+  - name: PROXY
+    type: select
+    proxies:
+      - tunnel
+
+rules:
+  # HTTP 出站只承载 TCP，把 QUIC 拒掉让浏览器立刻回落 TCP，避免请求卡住
+  - AND,((NETWORK,udp),(DST-PORT,443)),REJECT
+  # 不写直连/分流规则：出口主机已有完整规则集，本地再写一套只会互相打架
+  - MATCH,PROXY
+
+tun:
+  enable: false
+  stack: system
+  auto-route: true
+  # 必须排除内网段：否则去出口主机的 SSH 流量会被 TUN 抓走，经隧道回到隧道，成环
+  route-exclude-address:
+    - 10.0.0.0/8
+    - 172.16.0.0/12
+    - 192.168.0.0/16
+  dns-hijack:
+    - any:53
+
+dns:
+  enable: true
+  ipv6: false
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29

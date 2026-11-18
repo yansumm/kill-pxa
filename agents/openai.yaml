@@ -1,0 +1,7 @@
+interface:
+  display_name: "kill-pxa"
+  short_description: "免装 strange software：借 Office 主机的魔法出口同时访问内网和外网"
+  default_prompt: "Use $kill-pxa to borrow the Clash/mihomo egress from my Office host over SSH tunnel so this Guest-network laptop never needs strange software."
+
+policy:
+  allow_implicit_invocation: true
