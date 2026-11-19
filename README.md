@@ -1,6 +1,6 @@
 # kill-pxa
 
-如果对你有帮助，非常欢迎star，如果有问题欢迎提issue与pr
+如果对你有帮助，欢迎star，如果有问题欢迎提issue与pr
 
 想让个人电脑同时访问内网与外网（Google、GPT、Claude），本来只有两条路：要么在个人电脑上安装 PXA 这类占几个 G 存储、狂吃内存 CPU、还会截屏录屏造成过度隐私暴露的 `strange software` 进 **Office 网络** 再开“魔法”；要么连 **Guest 网络** 走多个 VPN，但 Guest 网络又把“魔法”给限制死了。
 
@@ -32,3 +32,9 @@ npx skills add yansumm/kill-pxa --skill kill-pxa -g -y
 ```
 
 这条命令会把 skill 安装到当前用户的 agent 环境；想只装到当前项目时去掉 `-g`。需要 Node.js 22.20 或更高版本。
+
+### 更多
+- 在windows上卸载pxa可能用到的工具：
+   - https://geekuninstaller.com/
+   - https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns
+   - https://learn.microsoft.com/en-us/sysinternals/downloads/pendmoves
