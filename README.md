@@ -4,7 +4,7 @@
 
 想让个人电脑同时访问内网与外网（Google、GPT、Claude），本来只有两条路：要么在个人电脑上安装 PXA 这类占几个 G 存储、狂吃内存 CPU、还会截屏录屏造成过度隐私暴露的 `strange software` 进 **Office 网络** 再开“魔法”；要么连 **Guest 网络** 走多个 VPN，但 Guest 网络又把“魔法”给限制死了。
 
-这个 skill 提供第三条路：只要你有一台已经接入 **Office 网络** 并部署好“魔法”（Clash/mihomo）的主机，个人电脑就能安心留在 Guest 网络，通过官方 VPN + 常驻 SSH 端口转发把那台主机的出口借过来，做成本地客户端里可一键切换的 profile——个人电脑从此免装 `strange software`。
+这个 skill 提供第三条路：**无需路由器！** 只要你有一台已经接入 **Office 网络** 并部署好“魔法”（Clash/mihomo）的主机，个人电脑就能安心留在 Guest 网络，通过官方 VPN + 常驻 SSH 端口转发把那台主机的出口借过来，做成本地客户端里可一键切换的 profile——个人电脑从此免装 `strange software`。
 
 - 怎么配、要满足什么前提：[SKILL.md](SKILL.md)
 - 不通了先看这里：[references/troubleshooting.md](references/troubleshooting.md)
